@@ -485,6 +485,8 @@ class Twiggy
 		// Reset the paths if needed.
 		if(is_object($this->_twig_loader))
 		{
+			//lets make twig check our themes before falling back to the default.
+			$this->_template_locations = array_reverse($this->_template_locations);
 			$this->_twig_loader->setPaths($this->_template_locations);
 		}
 	}
